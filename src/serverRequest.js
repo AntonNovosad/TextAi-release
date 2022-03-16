@@ -11,25 +11,32 @@ const regExp = /[^(\d+(.\d+)?)]/g;
 const EMPTY_STRING = "";
 const MIN_WORDS_COUNT = 3;
 const MAX_PERCENTAGE = 100;
+const CLASS_BTN_DISABLED = "btn_disabled";
+const SEND_BTN_TITLE = `Enter at least ${MIN_WORDS_COUNT} words!`;
 
 infoTextArea.disabled = true;
+sendButton.classList.add(CLASS_BTN_DISABLED);
+sendButton.title = SEND_BTN_TITLE;
 
-checkTextArea.addEventListener("keyup", (e) => {
+checkTextArea.addEventListener("keyup", e => {
   const wordsArray = e.target.value.split(" ").filter( str => str.length > 0 );
   const wordsCounter = wordsArray.length;
 
   if (wordsCounter >= MIN_WORDS_COUNT) {
     sendButton.disabled = false;
+    sendButton.classList.remove(CLASS_BTN_DISABLED);
     sendButton.title = EMPTY_STRING;
     
     if (e.code === "Enter") {
       sendButton.disabled = false;
+      sendButton.classList.remove(CLASS_BTN_DISABLED);
       sendButton.title = EMPTY_STRING;
       sendButton.click();
     }
   } else {
     sendButton.disabled = true;
-    sendButton.title = "Enter at least 3 words!";
+    sendButton.classList.add(CLASS_BTN_DISABLED);
+    sendButton.title = SEND_BTN_TITLE;
   }
 });
 
