@@ -41,7 +41,6 @@ double antiPlagiarism(string text, string fragment) {
 
 	string wordsOfText[textSize];
 	string wordsOfFragment[fragmentSize];
-		
 	
 	for (int i = 0; i < textSize; i++) {
 		wordsOfText[i] = cutTheWord(text, position);
@@ -58,10 +57,6 @@ double antiPlagiarism(string text, string fragment) {
 	}	
 	else {
 		numberOfShingles = textSize - SHINGLE_SIZE + 1;
-	}
-	
-	if (SHINGLE_SIZE > numberOfShingles) {
-		return 0.0;
 	}
 	
 	for (int i = 0; i < numberOfShingles; i++) {
