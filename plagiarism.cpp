@@ -31,9 +31,6 @@ double antiPlagiarism(string text, string fragment) {
 	text = canonizeText(text);
 	fragment = canonizeText(fragment);
 	
-	cout << text << endl;
-	cout << fragment << endl;
-	
 	int textSize = getAmoutOfWords(text);
 	int fragmentSize = getAmoutOfWords(fragment);
 	
@@ -44,9 +41,6 @@ double antiPlagiarism(string text, string fragment) {
 
 	string wordsOfText[textSize];
 	string wordsOfFragment[fragmentSize];
-	
-	printArrayOfStrings(wordsOfText, textSize);
-	printArrayOfStrings(wordsOfFragment, fragmentSize);
 		
 	
 	for (int i = 0; i < textSize; i++) {
@@ -95,7 +89,6 @@ string canonizeText(string text) {
 			word += text[i];
 			if (isSeparator(text[i + 1])) {
 				if (!isForbiddenWord(wordToLowerCase(word))) {
-					cout << word << endl;
 					canonizedText = canonizedText + wordToLowerCase(word) + space;
 					word = EMPTY_STRING;	
 				}
@@ -105,7 +98,6 @@ string canonizeText(string text) {
 			}
 			if (text[i + 1] == 0) {
 				if (!isForbiddenWord(wordToLowerCase(word))) {
-					cout << word << endl;
 					canonizedText = canonizedText + wordToLowerCase(word);
 				}	
 			}
