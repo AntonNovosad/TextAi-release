@@ -177,10 +177,11 @@ html, body {
 }
 
 #result {
-  padding: 1rem;
+  padding: 1.5rem;
   width: 100%;
   text-align: center;
   color: white;
+  font-size: 2rem;
   z-index: 9999;
 }
 
