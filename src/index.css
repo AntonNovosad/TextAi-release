@@ -10,20 +10,20 @@
 }
 
 html, body {
-  height: 100%;
   position: relative;
+  height: 100%;
   z-index: 1;
   background: url(/src/backgorund.jpg);
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 .container {
   position: relative;
-  z-index: 3;
   width: 100%;
   max-width: 1180px;
   padding: 30px;
   margin: 0 auto;
+  z-index: 3;
 }
 
 .header__title,
@@ -45,7 +45,7 @@ html, body {
 
 .main__contaier {
   width: 100%;
-  margin-top: 130px;
+  margin-top: 8.125rem;
 }
 
 .original-form__button,
@@ -55,7 +55,6 @@ html, body {
   cursor: pointer;
   font-weight: 700;
   font-size: 1.75rem;
-  height: 3.75rem;
   background: #0B1722;
   color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -75,17 +74,17 @@ html, body {
 
 .original-form__container {
   width: 100%;
-  height: 220px;
+  height: 13.75rem;
   display: flex;
   justify-content: space-between;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .original-form__block {
-  width: 250px;
+  width: 15.625rem;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .original-form__result {
@@ -97,14 +96,6 @@ html, body {
   flex-grow: 1;
   background-color: #0B1722;
   border-radius: 10px;
-}
-
-.full-opacity {
-  opacity: 1;
-}
-
-.partial-opacity {
-  opacity: 0.2;
 }
 
 .original-form__textarea,
@@ -119,13 +110,13 @@ html, body {
 }
 
 .original-form__textarea {
-  padding: 14px 32px;
+  padding: 1rem 2rem;
 }
 
 .check-form__container {
   display: flex;
-  margin-top: 25px;
-  gap: 25px;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
 }
 
 .check-form__button {
@@ -140,17 +131,17 @@ html, body {
 }
 
 .check-form__textarea {
-  padding: 8px 32px;
+  padding: 0.5rem 2rem;
 }
 
 .footer__container {
   width: 100%;
-  min-height: 84px;
+  min-height: 5.25rem;
   background: #fff;
   padding: 0 35px;
   border: 2px solid #0B1722;
   border-radius: 10px;
-  margin-top: 120px;
+  margin-top: 7.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -167,7 +158,7 @@ html, body {
   list-style-type: none;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .image-container {
@@ -221,7 +212,17 @@ html, body {
   height: 100%;
 }
 
+@media screen and (max-width: 1400px) {
+  body {
+      height: auto;
+    }
+}
+
 @media screen and (max-width: 870px) {
+  body {
+    height: auto;
+  }
+
   .header__title {
     font-size: 4.5rem;
   }
@@ -232,10 +233,10 @@ html, body {
 }
 
 @media screen and (max-width: 760px) {
-  #particles-js {
-    height: 106%;
-  }
 
+  body {
+      height: auto;
+    }
   .header__subtitle {
     font-size: 1.5rem;
     text-shadow: none;
@@ -247,13 +248,17 @@ html, body {
 
   .footer {
     flex-direction: column;
-    gap: 15px;
-    padding: 30px;
-    margin-top: 96px;
+    gap: 1rem;
+    padding: 2rem;
+    margin-top: 6rem;
   }
 }
 
 @media screen and (max-width: 600px) {
+
+  body {
+      height: auto;
+    }
 
   .header__title {
     font-size: 3.125rem;
@@ -272,6 +277,7 @@ html, body {
   .original-form__block {
     height: 100%;
     width: 100%;
+    gap: 0.5rem;
   }
 
   .original-form__button,
@@ -283,23 +289,23 @@ html, body {
   .check-form__textarea {
     box-shadow: none;
     border: 2px solid #0B1722;
-    padding: 18px 17px 18px 27px;
+    padding: 1rem 1rem 1rem 1.5rem;
   }
 
   .original-form__textarea {
-    height: 180px;
+    height: 11.125rem;
   }
 
   .original-form__result {
-    height: 146px;
+    height: 9.3rem;
     border: 2px solid #0B1722;
     box-shadow: 0px 10px 30px #00000080;
   }
 
   .check-form__container {
     flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   .original-form__button,
@@ -308,26 +314,22 @@ html, body {
   }
 
   .check-form__textarea {
-    height: 90px;
+    height: 5.625rem;
   }
 
   .original-form__result {
     width: 100%;
-    height: 160px;
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
     background-color: #0B1722;
     border-radius: 10px;
-    margin-top: 60px;
-  }
-
-  .original-form__result img {
-    width: 105px;
+    margin-top: 4rem;
   }
 
   .footer {
-    margin-top: 80px;
+    margin-top: 5rem;
   }
 }
