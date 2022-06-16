@@ -6,7 +6,6 @@
 
 using namespace std;
 
-const int SHINGLE_SIZE = 3;
 const int SPACE_ASCII = 32;
 const int A_ASCII = 65;
 const int Z_ASCII = 90;
@@ -24,10 +23,12 @@ string wordToLowerCase(string text);
 void printArrayOfStrings(string text[], int size);
 
 double antiPlagiarism(string text, string fragment) {
+	
 	int wordMatch = 0;
 	int shingleMatch = 0;
 	int numberOfShingles = 0;
 	int position = 0;
+	int shingleSize = 3;
 		
 	text = canonizeText(text);
 	fragment = canonizeText(fragment);
@@ -53,22 +54,22 @@ double antiPlagiarism(string text, string fragment) {
 		position += getStringLength(wordsOfFragment[i]) + 1;
 	}
 	
-	if (textSize > fragmentSize) {
-		numberOfShingles = fragmentSize - SHINGLE_SIZE + 1;
-	}	
-	else {
-		numberOfShingles = textSize - SHINGLE_SIZE + 1;
+	if (textSize < 4 or fragmentSize < 4) {
+		shingleSize = 1;
 	}
 	
-	if (SHINGLE_SIZE > numberOfShingles) {
-		return 0.0;
+	if (textSize > fragmentSize) {
+		numberOfShingles = fragmentSize - shingleSize + 1;
+	}	
+	else {
+		numberOfShingles = textSize - shingleSize + 1;
 	}
 	
 	for (int i = 0; i < numberOfShingles; i++) {
-		for (int j = 0; j < SHINGLE_SIZE; j++) {
+		for (int j = 0; j < shingleSize; j++) {
 			if (wordsOfText[i + j] == wordsOfFragment[i + j]) {
 				wordMatch++;
-				if (wordMatch == SHINGLE_SIZE) { 
+				if (wordMatch == shingleSize) { 
 					shingleMatch++;	
 				}
 			}	
@@ -76,7 +77,7 @@ double antiPlagiarism(string text, string fragment) {
 		wordMatch = 0;
 	}
 	
-	return 1.0 * shingleMatch / numberOfShingles; 
+	return (1.0 * shingleMatch / numberOfShingles) * 100; 
 }
 
 string canonizeText(string text) {	
@@ -89,7 +90,6 @@ string canonizeText(string text) {
 			word += text[i];
 			if (isSeparator(text[i + 1])) {
 				if (!isForbiddenWord(wordToLowerCase(word))) {
-					cout << word << endl;
 					canonizedText = canonizedText + wordToLowerCase(word) + space;
 					word = EMPTY_STRING;	
 				}
@@ -99,7 +99,6 @@ string canonizeText(string text) {
 			}
 			if (text[i + 1] == 0) {
 				if (!isForbiddenWord(wordToLowerCase(word))) {
-					cout << word << endl;
 					canonizedText = canonizedText + wordToLowerCase(word);
 				}	
 			}
