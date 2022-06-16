@@ -13,7 +13,7 @@ html, body {
   position: relative;
   height: 100%;
   z-index: 1;
-  background: url(/src/backgorund.jpg);
+  background: url(backgorund.jpg);
   background-size: cover;
 }
 
@@ -187,7 +187,7 @@ html, body {
 #opacity {
   position: absolute;
   background-color: black;
-  background-image: url(/src/main.png);
+  background-image: url(main.png);
   background-position: center center;
   background-size: cover;
   border-radius: 10px;
